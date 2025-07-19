@@ -103,20 +103,12 @@ const game = createGame({
         clearTimeout(timeoutIntervalId);
         score++;
 
-        if ([3, 15, 20, 25, 30].includes(score)) {
-          clearTimeout(timeoutIntervalId);
-
-          game.openDialog(
-            `🎉 Chúc mừng! Bạn đã đạt ${score} điểm! 🎉\nTiếp tục cố gắng nhé!`
-          );
-        }
-
         timeoutIntervalId = setTimeout(() => {
           filterIntensity = 0;
           game.updateFilter({
             intensity: filterIntensity,
           });
-          game.end('°GAME OVER', 'Score: ' + score);
+          game.end('YOU DIE', 'Score: ' + score);
           score = 0;
         }, TIME_BEFORE_LOSE);
       },
